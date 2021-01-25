@@ -43,7 +43,7 @@ public class CharacterController2D : MonoBehaviour
         Flip();
 
         // Fire mechanics
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
         {
             fire.SetActive(true);
         }
