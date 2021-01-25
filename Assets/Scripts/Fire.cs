@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowLight : MonoBehaviour
+public class Fire : MonoBehaviour
 {
-    public bool speed = false;
-    public float moveSpeed = 5f;
-
+    GameObject theBox;
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        theBox = GameObject.FindGameObjectWithTag("Box");
     }
-    void OnTriggerEnter2D(Collider2D other)
+
+    void OnTriggerEnter2D (Collider2D other)
     {
-        if (!speed)
+        if (other.gameObject.tag == "Box")
         {
-            speed = true;
-            Debug.Log("Hello");
-            moveSpeed = 2f;
+            GameObject.Destroy(theBox);
         }
     }
 }

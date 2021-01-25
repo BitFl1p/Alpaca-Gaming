@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ghost
+<<<<<<< HEAD
   - Badlight
+=======
+  - Box
+>>>>>>> 2fe2f208638d3444cd7bd03726b290ee59fa4130
   layers:
   - Default
   - TransparentFX
@@ -17,8 +21,8 @@ TagManager:
   - 
   - Ground
   - 
-  - 
-  - 
+  - Box
+  - Ghost
   - 
   - 
   - 
