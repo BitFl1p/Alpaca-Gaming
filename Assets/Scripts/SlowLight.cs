@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlowLight : MonoBehaviour
 {
     public bool speed = false;
-    public float moveSpeed = 5f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class SlowLight : MonoBehaviour
         {
             speed = true;
             Debug.Log("Hello");
-            moveSpeed = 2f;
+            other.gameObject.GetComponent<GhostController2D>().moveSpeed = 0f;
         }
     }
 }
