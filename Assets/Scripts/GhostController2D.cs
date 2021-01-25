@@ -7,7 +7,7 @@ public class GhostController2D : MonoBehaviour
     //player must have a rigidbody2D and a box colider
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
-    float lastMoveX;
+    public float lastMoveX;
     
     // Start is called before the first frame update
     void Start()

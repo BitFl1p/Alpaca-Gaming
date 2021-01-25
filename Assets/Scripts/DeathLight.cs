@@ -23,7 +23,11 @@ public class DeathLight : MonoBehaviour
         if (other.tag == "Ghost")
         {
             other.gameObject.GetComponent<GhostController2D>().moveSpeed -= 0.05f;
-            other.gameObject.GetComponent<GhostController2D>().jumpPow -= 0.05f;
+            other.gameObject.GetComponent<GhostController2D>().jumpPow -= 0.1f;
+            if(other.gameObject.GetComponent<GhostController2D>().moveSpeed <= 0f)
+            {
+                other.gameObject.GetComponent<GhostController2D>().moveSpeed = 0f;
+            }
             if (other.gameObject.GetComponent<GhostController2D>().jumpPow <= 0f && other.gameObject.GetComponent<GhostController2D>().moveSpeed <= 0f)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -10,6 +10,8 @@ public class CharacterController2D : MonoBehaviour
     float lastMoveX;
     Animator anim;
     public GameObject fire;
+    public bool ghostActive = false;
+    public GameObject ghost;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,48 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ghostActive && Input.GetKeyDown(KeyCode.F))
+        {
+            anim.SetBool("Moving", false);
+            GetComponent<Collider2D>().enabled = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.velocity = Vector2.zero;
+            ghost.SetActive(false);
+            ghostActive = false;
+            return;
+        }
+        else if (ghostActive)
+        {
+            return;
+        }
+        else if (!ghostActive && Input.GetKeyDown(KeyCode.F) && IsGrounded())
+        {
+            ghost.GetComponent<GhostController2D>().lastMoveX = lastMoveX;
+            ghost.transform.position = transform.position;
+            
+            anim.SetBool("Moving", false);
+            GetComponent<Collider2D>().enabled = false;
+            rb.bodyType = RigidbodyType2D.Static;
+            rb.velocity = Vector2.zero;
+            ghost.SetActive(true);
+            ghostActive = true;
+            return;
+        }
+        ghost.GetComponent<GhostController2D>().lastMoveX = lastMoveX;
+        ghost.transform.position = transform.position;
+        GetComponent<Collider2D>().enabled = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        if (Input.GetKey(KeyCode.E) && IsGrounded())
+        {
+            anim.SetBool("Fire", true);
+            rb.velocity = Vector2.zero;
+            return;
+
+        }
+        else
+        {
+            anim.SetBool("Fire", false);
+        }
         Jump();
 
         anim.SetBool("Jumping", !IsGrounded());
@@ -43,14 +87,15 @@ public class CharacterController2D : MonoBehaviour
         Flip();
 
         // Fire mechanics
-        if (Input.GetKey(KeyCode.E) && !(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
-        {
-            fire.SetActive(true);
-        }
-        else
-        {
-            fire.SetActive(false);
-        }
+        
+    }
+    public void FireTrue()
+    {
+        fire.SetActive(true);
+    }
+    public void FireFalse()
+    {
+        fire.SetActive(false);
     }
     public LayerMask groundLayer;
 
