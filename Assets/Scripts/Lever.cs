@@ -1,23 +1,23 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class Lever : MonoBehaviour
 {
-    public bool isButtonOn = false;
-    private Animator anim;
+    //public bool isButtonOn = false;
+    //private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-           isButtonOn = true;
+           isLeverOn = true;
             anim.SetBool("pressed", true);
         }
         
@@ -37,4 +37,4 @@ public class Button : MonoBehaviour
     {
         
     }
-}
+}*/
