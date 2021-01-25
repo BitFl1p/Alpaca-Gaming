@@ -21,12 +21,20 @@ public class CharacterController2D : MonoBehaviour
     void Update()
     {
         Jump();
-        
-        
+
+        anim.SetBool("Jumping", !IsGrounded());
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
-        
+        if(rb.velocity.x != 0)
+        {
+            anim.SetBool("Moving", true);
+        }
+        else
+        {
+            anim.SetBool("Moving", false);
+        }
         if (rb.velocity.x > 0f)
         {
+            
             lastMoveX = 1;
         } else if (rb.velocity.x < 0f)
         {
@@ -37,11 +45,11 @@ public class CharacterController2D : MonoBehaviour
         // Fire mechanics
         if (Input.GetKey(KeyCode.E))
         {
-            fire.active = true;
+            fire.SetActive(true);
         }
         else
         {
-            fire.active = false;
+            fire.SetActive(false);
         }
     }
     public LayerMask groundLayer;

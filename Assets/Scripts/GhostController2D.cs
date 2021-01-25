@@ -69,5 +69,12 @@ public class GhostController2D : MonoBehaviour
                 break;
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.gameObject.tag == "Ghost Gate")
+        {
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
+        }
+    }
 }
 
