@@ -9,6 +9,7 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D rb;
     float lastMoveX;
     Animator anim;
+    public GameObject fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,16 @@ public class CharacterController2D : MonoBehaviour
             lastMoveX = -1;
         }
         Flip();
+
+        // Fire mechanics
+        if (Input.GetKey(KeyCode.E))
+        {
+            fire.active = true;
+        }
+        else
+        {
+            fire.active = false;
+        }
     }
     public LayerMask groundLayer;
 
