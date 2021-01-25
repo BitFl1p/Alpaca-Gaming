@@ -709,7 +709,6 @@ GameObject:
   - component: {fileID: 697594653}
   - component: {fileID: 697594652}
   - component: {fileID: 697594651}
-  - component: {fileID: 697594657}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Ghost
@@ -874,20 +873,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &697594657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697594650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44aaa867c52e63c47b621edda53fca36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  moveSpeed: 5
 --- !u!1 &710919207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1224,7 @@ GameObject:
   - component: {fileID: 1813491149}
   - component: {fileID: 1813491148}
   - component: {fileID: 1813491150}
+  - component: {fileID: 1813491151}
   m_Layer: 0
   m_Name: Freeform Light 2D
   m_TagString: Undefined
@@ -1331,3 +1317,16 @@ PolygonCollider2D:
       - {x: -2.0618274, y: -4.4949923}
       - {x: 1.4722103, y: -4.568712}
       - {x: 0.80365276, y: 3.5158148}
+--- !u!114 &1813491151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813491147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44aaa867c52e63c47b621edda53fca36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0

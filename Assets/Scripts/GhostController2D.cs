@@ -21,7 +21,7 @@ public class GhostController2D : MonoBehaviour
     {
         Jump();
         
-        
+        //Physics2D.IgnoreCollision()
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
         
         if (rb.velocity.x > 0f)
