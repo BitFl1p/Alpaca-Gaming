@@ -43,8 +43,8 @@ public class CharacterController2D : MonoBehaviour
             
             anim.SetBool("Moving", false);
             GetComponent<Collider2D>().enabled = false;
-            rb.bodyType = RigidbodyType2D.Static;
             rb.velocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Static;
             ghost.SetActive(true);
             ghostActive = true;
             return;

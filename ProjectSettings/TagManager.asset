@@ -7,6 +7,7 @@ TagManager:
   - Ghost
   - Box
   - Ghost Gate
+  - Undefined
   layers:
   - Default
   - TransparentFX
