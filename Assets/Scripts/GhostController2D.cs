@@ -21,7 +21,7 @@ public class GhostController2D : MonoBehaviour
     {
         Jump();
         
-        //Physics2D.IgnoreCollision()
+        
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
         
         if (rb.velocity.x > 0f)
@@ -67,6 +67,13 @@ public class GhostController2D : MonoBehaviour
             case -1f:
                 transform.localScale = new Vector3(1, 1, 1);
                 break;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.gameObject.tag == "Ghost Gate")
+        {
+            Physics2D.IgnoreCollision(GetComponent<PolygonCollider2D>(), collision.collider);
         }
     }
 }
