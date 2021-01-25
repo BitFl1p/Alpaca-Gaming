@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spikes : MonoBehaviour
 {
@@ -16,11 +17,11 @@ public class Spikes : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene());
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
