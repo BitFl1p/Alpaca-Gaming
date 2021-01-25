@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-
-  
->>>>>>> fb469c42eb47a6ceafdbc8283d68c88dac8ce034
+  - Ghost
+  - Box
   layers:
   - Default
   - TransparentFX
