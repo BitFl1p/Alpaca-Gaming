@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class CharacterController2D : MonoBehaviour
+public class GhostController2D : MonoBehaviour
 {
     public float jumpPow;
     //player must have a rigidbody2D and a box colider
@@ -21,9 +21,16 @@ public class CharacterController2D : MonoBehaviour
     {
         Jump();
         
-        
+        anim.SetBool("Jumping", !IsGrounded());
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
-        
+        if(rb.velocity.x != 0f)
+        {
+            anim.SetBool("Moving", true);
+        } 
+        else
+        {
+            anim.SetBool("Moving", false);
+        }
         if (rb.velocity.x > 0f)
         {
             lastMoveX = 1;
@@ -69,6 +76,5 @@ public class CharacterController2D : MonoBehaviour
                 break;
         }
     }
-   
 }
 
