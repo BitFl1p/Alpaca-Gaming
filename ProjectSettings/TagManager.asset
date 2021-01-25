@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-  - Box
-=======
-  - Ghost
+
+  
 >>>>>>> fb469c42eb47a6ceafdbc8283d68c88dac8ce034
   layers:
   - Default
@@ -20,8 +18,8 @@ TagManager:
   - 
   - Ground
   - 
-  - 
-  - 
+  - Box
+  - Ghost
   - 
   - 
   - 
