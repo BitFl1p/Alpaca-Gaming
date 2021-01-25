@@ -8,12 +8,12 @@ public class GhostController2D : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     float lastMoveX;
-    Animator anim;
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -21,16 +21,9 @@ public class GhostController2D : MonoBehaviour
     {
         Jump();
         
-        anim.SetBool("Jumping", !IsGrounded());
+        
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
-        if(rb.velocity.x != 0f)
-        {
-            anim.SetBool("Moving", true);
-        } 
-        else
-        {
-            anim.SetBool("Moving", false);
-        }
+        
         if (rb.velocity.x > 0f)
         {
             lastMoveX = 1;
