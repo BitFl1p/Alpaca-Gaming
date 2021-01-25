@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+    public int yeet;
     //player must have a rigidbody2D and a box colider
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
