@@ -9,6 +9,7 @@ public class TogglePlatform : MonoBehaviour
     
     public Button button;
     public Lever lever;
+    public bool reverse;
     Animator anim;
     AudioManager audioMan;
     void Start()
@@ -25,12 +26,30 @@ public class TogglePlatform : MonoBehaviour
             switch (!button.isButtonOn)
             {
                 case true:
-                    GetComponent<Collider2D>().enabled = true;
-                    GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    if (reverse)
+                    {
+                        GetComponent<Collider2D>().enabled = false;
+                        GetComponent<SpriteRenderer>().color = new Color(123, 123, 123);
+                    }
+                    else
+                    {
+                        GetComponent<Collider2D>().enabled = true;
+                        GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    }
+                    
                     break;
                 case false:
-                    GetComponent<Collider2D>().enabled = false;
-                    GetComponent<SpriteRenderer>().color = new Color(123, 123, 123);
+                    if (reverse)
+                    {
+                        GetComponent<Collider2D>().enabled = true;
+                        GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    }
+                    else
+                    {
+                        GetComponent<Collider2D>().enabled = false;
+                        GetComponent<SpriteRenderer>().color = new Color(123, 123, 123);
+                    }
+                    
                     break;
             }
             anim.SetBool("Enabled", button.isButtonOn);
