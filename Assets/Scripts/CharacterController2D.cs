@@ -12,9 +12,11 @@ public class CharacterController2D : MonoBehaviour
     public GameObject fire;
     public bool ghostActive = false;
     public GameObject ghost;
+    public AudioManager audioMan;
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -25,36 +27,38 @@ public class CharacterController2D : MonoBehaviour
         if (ghostActive && Input.GetKeyDown(KeyCode.F))
         {
             anim.SetBool("Moving", false);
-            GetComponent<Collider2D>().enabled = true;
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            GetComponent<Collider2D>().isTrigger = false;
             rb.velocity = Vector2.zero;
+            rb.gravityScale = 4;
             ghost.SetActive(false);
             ghostActive = false;
             return;
         }
         else if (ghostActive)
         {
+            rb.velocity = Vector2.zero;
             return;
         }
         else if (!ghostActive && Input.GetKeyDown(KeyCode.F) && IsGrounded())
         {
             ghost.GetComponent<GhostController2D>().lastMoveX = lastMoveX;
             ghost.transform.position = transform.position;
-            
+            audioMan.sfxMan.Play(3);
             anim.SetBool("Moving", false);
-            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Collider2D>().isTrigger = true;
             rb.velocity = Vector2.zero;
-            rb.bodyType = RigidbodyType2D.Static;
+            rb.gravityScale = 0;
             ghost.SetActive(true);
             ghostActive = true;
             return;
         }
         ghost.GetComponent<GhostController2D>().lastMoveX = lastMoveX;
         ghost.transform.position = transform.position;
-        GetComponent<Collider2D>().enabled = true;
+        GetComponent<Collider2D>().isTrigger = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
         if (Input.GetKey(KeyCode.E) && IsGrounded())
         {
+            
             anim.SetBool("Fire", true);
             rb.velocity = Vector2.zero;
             return;
@@ -65,7 +69,7 @@ public class CharacterController2D : MonoBehaviour
             anim.SetBool("Fire", false);
         }
         Jump();
-
+        rb.gravityScale = 4;
         anim.SetBool("Jumping", !IsGrounded());
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
         if(rb.velocity.x != 0)
@@ -98,6 +102,7 @@ public class CharacterController2D : MonoBehaviour
         fire.SetActive(false);
     }
     public LayerMask groundLayer;
+    public LayerMask spookroundLayer;
 
     bool IsGrounded()
     {
@@ -110,14 +115,22 @@ public class CharacterController2D : MonoBehaviour
         {
             return true;
         }
+        hit = Physics2D.Raycast(position, direction, distance, spookroundLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
 
         return false;
     }
-    
+    public void PlayFireWoosh() { audioMan.sfxMan.Play(0); }
+    public void PlayFire() { audioMan.sfxMan.Play(1); }
+    public void StopFire() { audioMan.sfxMan.Stop(1); }
     void Jump()
     {
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            audioMan.sfxMan.Play(2);
             rb.velocity = new Vector2(rb.velocity.x, jumpPow);
         }
     }

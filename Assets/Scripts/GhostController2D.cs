@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using Cinemachine;
+using UnityEngine.Rendering;
 
 public class GhostController2D : MonoBehaviour
 {
@@ -8,17 +10,22 @@ public class GhostController2D : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     public float lastMoveX;
+    public CinemachineVirtualCamera cam;
+    
     
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         
     }
 
     // Update is called once per frame
+    
     void Update()
     {
+        
         Jump();
         
         

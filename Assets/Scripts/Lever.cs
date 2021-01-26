@@ -6,46 +6,43 @@ using UnityEngine.UI;
 public class Lever : MonoBehaviour
 {
     public bool isLeverOn = false;
-    //private Animator animLever;
+    private Animator animLever;
+    public AudioManager audioMan;
     // Start is called before the first frame update
     void Start()
     {
-        //animLever = GetComponent<Animator>();
+        animLever = GetComponent<Animator>();
+        audioMan = FindObjectOfType<AudioManager>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Ghost")
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                if (isLeverOn == false)
+                switch (isLeverOn)
                 {
-                    isLeverOn = true;
-                     //animLever.SetBool("LeverUnpressed", true);
+                    case true:
+                        isLeverOn = false;
+                        break;
+                    case false:
+                        isLeverOn = true;
+                        break;
                 }
-                if(isLeverOn == true)
-                {
-                    isLeverOn = false;
-                }
-                
+
+                audioMan.sfxMan.Play(4);
             }
             
         }
         
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-                //animLever.SetBool("pressed", false);
-        }
-    } 
+    
     
 
     // Update is called once per frame
     void Update()
     {
-        
+        animLever.SetBool("Flipped", isLeverOn);
     }
 }
