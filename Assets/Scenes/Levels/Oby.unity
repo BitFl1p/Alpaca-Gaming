@@ -8394,6 +8394,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[4].x
+      value: -1.7809734
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[4].y
+      value: -16.980679
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[5].x
+      value: 8.592384
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[5].y
+      value: -16.857464
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[6].x
+      value: 8.892728
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[6].y
+      value: -2.3603563
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[7].x
+      value: -25.889227
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[7].y
+      value: -2.299222
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_ShapeLightFalloffSize
+      value: 1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1444027
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.033018887
+      objectReference: {fileID: 0}
+    - target: {fileID: 779954519347612730, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
+        type: 3}
+      propertyPath: m_LightVolumeOpacity
+      value: 0.13
+      objectReference: {fileID: 0}
     - target: {fileID: 779954519347612733, guid: 774e57fbe80e07b4c8d6aeeb8a267a24,
         type: 3}
       propertyPath: m_Name
