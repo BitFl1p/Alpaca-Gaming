@@ -52,22 +52,41 @@ public class TogglePlatform : MonoBehaviour
                     
                     break;
             }
-            anim.SetBool("Enabled", button.isButtonOn);
+            if (reverse) { anim.SetBool("Enabled", !button.isButtonOn); } else { anim.SetBool("Enabled", button.isButtonOn); };
         }
         if (lever != null)
         {
             switch (!lever.isLeverOn)
             {
                 case true:
-                    GetComponent<Collider2D>().enabled = true;
-                    GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    if (reverse)
+                    {
+                        GetComponent<Collider2D>().enabled = false;
+                        GetComponent<SpriteRenderer>().color = new Color(123, 123, 123);
+                    }
+                    else
+                    {
+                        GetComponent<Collider2D>().enabled = true;
+                        GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    }
+
                     break;
                 case false:
-                    GetComponent<Collider2D>().enabled = false;
-                    GetComponent<SpriteRenderer>().color = new Color(123, 123, 123);
+                    if (reverse)
+                    {
+                        GetComponent<Collider2D>().enabled = true;
+                        GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+                    }
+                    else
+                    {
+                        GetComponent<Collider2D>().enabled = false;
+                        GetComponent<SpriteRenderer>().color = new Color(123, 123, 123);
+                    }
+
+
                     break;
             }
-            anim.SetBool("Enabled", lever.isLeverOn);
+            if (reverse) { anim.SetBool("Enabled", !lever.isLeverOn); } else { anim.SetBool("Enabled", lever.isLeverOn); };
         }
     }
     
