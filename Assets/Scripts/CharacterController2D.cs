@@ -110,12 +110,22 @@ public class CharacterController2D : MonoBehaviour
         Vector2 direction = Vector2.down;
         float distance = 2.0f;
 
-        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(position.x - 0.5f, position.y), direction, distance, groundLayer);
         if (hit.collider != null)
         {
             return true;
         }
-        hit = Physics2D.Raycast(position, direction, distance, spookroundLayer);
+        hit = Physics2D.Raycast(new Vector2(position.x - 0.5f, position.y), direction, distance, spookroundLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        hit = Physics2D.Raycast(new Vector2(position.x + 0.5f, position.y), direction, distance, groundLayer);
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        hit = Physics2D.Raycast(new Vector2(position.x + 0.5f, position.y), direction, distance, spookroundLayer);
         if (hit.collider != null)
         {
             return true;

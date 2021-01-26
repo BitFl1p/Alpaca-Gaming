@@ -19,7 +19,7 @@ public class Lever : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Ghost")
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyUp(KeyCode.R))
             {
                 switch (isLeverOn)
                 {
